@@ -92,39 +92,14 @@ h4 {
         </tbody>
       </table>
 
-      <small class="text-muted">Envío a domicilio incluido.</small>
-
-      <!-- Formulario del Cliente -->
-      <h4 class="mt-4">Datos del Cliente</h4>
-<form method="post" id="form-cliente" action="{% url 'finalizar_pedido' %}" novalidate>
+      <div class="d-flex gap-3 mt-4">
+  <form method="post" action="{% url 'finalizar_pedido' %}">
   {% csrf_token %}
-  <div class="mb-3">
-    <label for="nombre" class="form-label">Nombre completo</label>
-    <input type="text" class="form-control" id="nombre" name="nombre" required maxlength="30">
-    <div class="text-danger" id="error-nombre"></div>
-  </div>
-  <div class="mb-3">
-    <label for="celular" class="form-label">Celular</label>
-    <input type="text" class="form-control" id="celular" name="celular" required maxlength="8">
-    <div class="text-danger" id="error-celular"></div>
-  </div>
-  <div class="mb-3">
-    <label for="correo" class="form-label">Correo electrónico</label>
-    <input type="email" class="form-control" id="correo" name="correo" required>
-    <div class="text-danger" id="error-correo"></div>
-  </div>
-  <div class="mb-3">
-    <label for="direccion" class="form-label">Dirección de entrega (opcional)</label>
-    <textarea class="form-control" id="direccion" name="direccion" rows="2" maxlength="30"></textarea>
-    <div class="text-danger" id="error-direccion"></div>
-  </div>
-  
-  <div class="d-flex gap-3 mt-4">
   <button type="submit" class="btn btn-success">Finalizar Pedido</button>
+</form>
   <a href="/" class="btn" style="background-color: #0d6efd; color: white;">Volver a productos</a>
 </div>
 
-</form>
     {% else %}
       <p>No hay productos en el carrito.</p>
     {% endif %}
